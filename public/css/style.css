@@ -114,3 +114,13 @@ footer{
 form textarea {
     resize: none;
 }
+
+.edit-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+    opacity: 0.9;
+}
+
+.edit-btn:hover {
+    opacity: 1;
+}
