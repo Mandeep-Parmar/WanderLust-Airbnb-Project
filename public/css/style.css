@@ -115,6 +115,8 @@ form textarea {
     resize: none;
 }
 
+/* Edit Page */
+
 .edit-btn {
     background-color: #fe424d !important;
     border: none !important;
@@ -123,4 +125,10 @@ form textarea {
 
 .edit-btn:hover {
     opacity: 1;
+}
+
+/* Show page  */
+
+.show-img{
+    height: 40vh;
 }
