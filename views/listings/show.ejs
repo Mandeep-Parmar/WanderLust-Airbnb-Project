@@ -1,41 +1,37 @@
 <% layout("layouts/boilerplate") %>
-<body>
+<!-- justify-content-center -> centers all columns horizontally -->
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 mt-3 mb-3 text-center">
+        <h3>Listing Details</h3>
+    </div>
+    
+    <div class="col-lg-6 col-md-10">
+        <div class="card">
+            <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing image">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= listing.title %>
+                </h5>
 
-    <!-- justify-content-center -> centers all columns horizontally -->
-    <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-10 mt-3 mb-3 text-center">
-            <h3>Listing Details</h3>
-        </div>
-        
-        <div class="col-lg-6 col-md-10">
-            <div class="card">
-                <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing image">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <%= listing.title %>
-                    </h5>
+                <p class="text-muted small mb-2">
+                    <%= listing.location %>, <%= listing.country %>
+                </p>
 
-                    <p class="text-muted small mb-2">
-                        <%= listing.location %>, <%= listing.country %>
-                    </p>
+                <p class="card-text mb-3">
+                    <%= listing.description %>
+                </p>
 
-                    <p class="card-text mb-3">
-                        <%= listing.description %>
-                    </p>
+                <h6 class="mb-3">
+                    ₹ <%= listing.price.toLocaleString("en-IN") %> / night
+                </h6>
 
-                    <h6 class="mb-3">
-                        ₹ <%= listing.price.toLocaleString("en-IN") %> / night
-                    </h6>
-
-                    <div class="btns d-flex gap-3">
-                        <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark edit-btn">Edit</a>   
-                        <form action="/listings/<%= listing._id %>?_method=DELETE" method="post">
-                            <button class="btn btn-danger">Delete</button>
-                        </form>
-                    </div>
+                <div class="btns d-flex gap-3">
+                    <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark edit-btn">Edit</a>   
+                    <form action="/listings/<%= listing._id %>?_method=DELETE" method="post">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-
-</body>
+</div>
