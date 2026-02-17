@@ -2,16 +2,13 @@
 <!-- justify-content-center -> centers all columns horizontally -->
 <div class="row justify-content-center">
     <div class="col-lg-8 col-md-10 mt-3 mb-3 text-center">
-        <h3>Listing Details</h3>
+        <h3> <%= listing.title %> </h3>
     </div>
     
     <div class="col-lg-6 col-md-10">
         <div class="card">
             <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing image">
             <div class="card-body">
-                <h5 class="card-title">
-                    <%= listing.title %>
-                </h5>
 
                 <p class="text-muted small mb-2">
                     <%= listing.location %>, <%= listing.country %>
@@ -33,5 +30,24 @@
                 </div>
             </div>
         </div>
+
+        <div class="mb-3">
+            <hr>
+            <h4>Leave a Review</h4>
+            <form action="/listings/<%= listing._id %>/review" method="post" class="needs-validation" novalidate> 
+                <div class="mb-3 mt-3">
+                    <label for="range4" class="form-label">Rating</label>
+                    <input type="range" name="review[rating]" min="1" max="5" id="range4" class="form-range">
+                    <output for="range4" id="rangeValue" aria-hidden="true"></output>
+                </div>
+                <div class="mb-3 mt-3">
+                    <label for="comment" class="form-label">Comments</label>
+                    <textarea name="review[comment]" id="comment" class="form-control" required></textarea>
+                    <div class="invalid-feedback"> Please add some comments for review. </div>
+                </div>
+                <button class="btn btn-outline-danger">Submit</button>
+            </form>
+        </div>
+        
     </div>
 </div>
