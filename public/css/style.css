@@ -76,7 +76,7 @@ footer{
 
 /* Cards (index)  */
 
-.card{
+.listing-card{
     border: none !important;
     margin-bottom: 2rem;
     border-radius: 1rem !important;
@@ -93,7 +93,7 @@ footer{
     text-decoration: none;
 }
 
-.card:hover {
+.listing-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     transition: 0.25s ease;
@@ -131,4 +131,20 @@ form textarea {
 
 .show-img{
     height: 40vh;
+}
+
+/* Review Card */
+.review-card {
+    border-radius: 0.8rem;
+    border: 1px solid #eee;
+    transition: 0.2s;
+}
+
+.review-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Stars color */
+.text-warning {
+    font-weight: 500;
 }

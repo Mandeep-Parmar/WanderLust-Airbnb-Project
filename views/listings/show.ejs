@@ -6,7 +6,7 @@
     </div>
     
     <div class="col-lg-6 col-md-10">
-        <div class="card">
+        <div class="card listing-card">
             <img src="<%= listing.image.url %>" class="card-img-top show-img" alt="listing image">
             <div class="card-body">
 
@@ -49,5 +49,35 @@
             </form>
         </div>
         
+        <hr>
+        <p><b>All Reviews</b></p>
+        <% if(listing.reviews.length > 0){ %>
+        <p class="text-muted">
+            Avg Rating:
+            <b>
+            <%= (
+                listing.reviews.reduce((sum, r) => sum + r.rating, 0) 
+                / listing.reviews.length
+            ).toFixed(1) %> ⭐
+            </b>
+        </p>
+        <% } %>
+
+        <% if(!listing.reviews || listing.reviews.length === 0){ %>
+            <p class="text-muted">No reviews yet. Be the first to review ⭐</p>
+        <% } %>
+
+
+        <div class="row">
+            <% for(review of listing.reviews){ %>
+            <div class="card col-md-5 col-10 me-4 mb-3 review-card">
+                <div class="card-body">
+                    <h5 class="card-title text-muted">Guest</h5>
+                    <p class="card-text"><%= review.comment %></p>
+                    <p class="card-text text-warning">⭐ <%= review.rating %> / 5 Stars</p>
+                </div>
+            </div>
+            <% } %>
+        </div>
     </div>
 </div>
