@@ -68,16 +68,6 @@ app.listen(8080, () => {
     console.log("app is listning on port 8080");
 });
 
-// app.get("/demouser", async (req, res) => {
-//     let fakeUser = new User ({
-//         email: "student@gmail.com",
-//         username: "delta-student"
-//     });
-
-//     const registeredUser = await User.register(fakeUser, "helloworld");
-//     res.send(registeredUser);
-// });
-
 app.get("/", (req, res) => {
     res.send("Hi, I am root");
 });
