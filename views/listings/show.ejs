@@ -24,12 +24,14 @@
                     ₹ <%= listing.price.toLocaleString("en-IN") %> / night
                 </h6>
 
-                <div class="btns d-flex gap-3">
-                    <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark edit-btn">Edit</a>   
-                    <form action="/listings/<%= listing._id %>?_method=DELETE" method="post">
-                        <button class="btn btn-danger">Delete</button>
-                    </form>
-                </div>
+                <% if(currUser && currUser._id.equals(listing.owner._id)) {%>
+                    <div class="btns d-flex gap-3">
+                        <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark edit-btn">Edit</a>   
+                        <form action="/listings/<%= listing._id %>?_method=DELETE" method="post">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                <% } %>
             </div>
         </div>
 
