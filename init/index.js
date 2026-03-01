@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config({ path: "../.env" });
 
 const mongoose = require("mongoose");
 const initData = require("./data.js")
@@ -16,6 +16,7 @@ async function main() {
 
 const initDB = async () => {
     await Listing.deleteMany({});
+    initData.data = initData.data.map((obj) => ({...obj, owner: "69a3bb98b7b984d430534a4e"}));
     await Listing.insertMany(initData.data);
     console.log("Data was initialized");
 }
