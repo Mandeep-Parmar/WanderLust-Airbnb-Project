@@ -148,3 +148,25 @@ form textarea {
 .text-warning {
     font-weight: 500;
 }
+
+/* login-alert of review  */
+
+.login-alert {
+  background: #f8f9fa;
+  border: 1px solid #e5e5e5;
+  padding: 16px 20px;
+  border-radius: 10px;
+  color: #444;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.login-alert a {
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-alert a:hover {
+  text-decoration: underline;
+}
