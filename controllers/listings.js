@@ -1,4 +1,5 @@
 const Listing = require("../models/listing.js");
+const { cloudinary } = require("../cloudConfig");
 
 module.exports.index = async (req, res) => {
   const allListings = await Listing.find({});
@@ -57,14 +58,25 @@ module.exports.renderEditForm = async (req, res) => {
 
 module.exports.updateListing = async (req, res) => {
   let { id } = req.params;
-  await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+  let listing = await Listing.findByIdAndUpdate(id, { ...req.body.listing });
+
+  if(req.file){
+    // Delete old image from Cloudinary
+    await cloudinary.uploader.destroy(listing.image.filename);
+
+    let url = req.file.path;
+    let filename = req.file.filename;
+    listing.image = { url, filename };
+    await listing.save();
+  }
+  
   req.flash("success", "Listing Updated!");
   res.redirect(`/listings/${id}`);
 };
 
 module.exports.destroyListing = async (req, res) => {
   let { id } = req.params;
-  let deletedListing = await Listing.findByIdAndDelete(id);
+  await Listing.findByIdAndDelete(id);
   req.flash("success", "Listing Deleted!");
   res.redirect("/listings");
 };
