@@ -2,8 +2,16 @@ const Listing = require("../models/listing.js");
 const { cloudinary } = require("../cloudConfig");
 
 module.exports.index = async (req, res) => {
-  const allListings = await Listing.find({});
-  res.render("listings/index", { allListings });
+  let { category } = req.query;
+  let listings;
+
+  if (category) {
+    listings = await Listing.find({ category });
+  } else {
+    listings = await Listing.find({});
+  }
+
+  res.render("listings/index", { listings });
 };
 
 module.exports.renderNewForm = (req, res) => {
