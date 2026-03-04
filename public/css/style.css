@@ -160,6 +160,10 @@ form textarea {
     opacity: 1;
 }
 
+.edit-preview-img {
+  max-width: 250px !important;
+  width: 100%;
+}
 /* Show page  */
 
 .show-img{
