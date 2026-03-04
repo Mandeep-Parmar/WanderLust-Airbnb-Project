@@ -1,12 +1,45 @@
 <% layout("layouts/boilerplate") %>
-<h3>All Listings</h3>
-<br>
 
-<!-- <form action="/listings/new" method="get">
-    <button>Create New Listing</button>
-</form> -->
+<div class="filters mt-3">
 
-<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <a href="/listings" class="filter">
+        <i class="fa-solid fa-border-all"></i>
+        <span>All</span>
+    </a>
+
+    <a href="/listings?category=beach" class="filter">
+        <i class="fa-solid fa-umbrella-beach"></i>
+        <span>Beach</span>
+    </a>
+
+    <a href="/listings?category=mountain" class="filter">
+        <i class="fa-solid fa-mountain"></i>
+        <span>Mountain</span>
+    </a>
+
+    <a href="/listings?category=city" class="filter">
+        <i class="fa-solid fa-city"></i>
+        <span>City</span>
+    </a>
+
+    <a href="/listings?category=camping" class="filter">
+        <i class="fa-solid fa-campground"></i>
+        <span>Camping</span>
+    </a>
+
+    <a href="/listings?category=rooms" class="filter">
+        <i class="fa-solid fa-bed"></i>
+        <span>Rooms</span>
+    </a>
+
+    <a href="/listings?category=farm" class="filter">
+        <i class="fa-solid fa-tractor"></i>
+        <span>Farm</span>
+    </a>
+
+</div>
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
     <% for (let listing of allListings) {%>
         <a href="/listings/<%= listing._id %>" class="listing-link">
             <div class="card listing-card">

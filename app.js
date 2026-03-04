@@ -68,10 +68,6 @@ app.listen(8080, () => {
     console.log("app is listning on port 8080");
 });
 
-app.get("/", (req, res) => {
-    res.send("Hi, I am root");
-});
-
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);

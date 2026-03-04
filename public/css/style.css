@@ -132,6 +132,37 @@ footer{
   color: #777;
 }
 
+/* index (filter) */
+.filters{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    overflow-x: auto;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.filter{
+    text-align: center;
+    color: #6c757d;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+.filter i{
+    font-size: 1.5rem;
+    display: block;
+}
+
+.filter span{
+    font-size: 0.8rem;
+}
+
+.filter:hover{
+    opacity: 1;
+    color: black;
+}
+
 /* New Page */
 
 .add-btn{
