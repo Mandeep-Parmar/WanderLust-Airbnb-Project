@@ -133,13 +133,21 @@ footer{
 }
 
 /* index (filter) */
+
+.filters-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+    gap: 1.5rem;
+}
+
 .filters{
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 2.5rem;
     overflow-x: auto;
     padding: 1rem 0;
-    border-bottom: 1px solid #ddd;
     scrollbar-width: none;
 }
 
@@ -172,6 +180,25 @@ footer{
   border-bottom: 3px solid #fe424d;
   opacity: 1;
   font-weight: 600;
+}
+
+/* index (filter -> tax switch) */
+
+.tax-toggle{
+    background: #f8f9fa;
+    padding: 0.6rem;
+    border-radius: 1rem;
+    border: 1px solid #dee2e6;
+}
+
+.tax-info{
+    display: none;
+    color:gray;
+    font-size:0.85rem;
+}
+
+.show-tax{
+    display: inline;
 }
 
 /* New Page */

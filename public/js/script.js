@@ -18,13 +18,24 @@
   })
 })()
 
-// This is an example script, please modify as needed
-const rangeInput = document.getElementById('range4');
-const rangeOutput = document.getElementById('rangeValue');
+let taxSwitch = document.querySelector("#switchCheckDefault");
 
-// Set initial value
-rangeOutput.textContent = rangeInput.value;
+taxSwitch.addEventListener("click", () => {
 
-rangeInput.addEventListener('input', function() {
-  rangeOutput.textContent = this.value;
+  document.querySelectorAll(".price").forEach(price => {
+
+    let basePrice = Number(price.dataset.price);
+
+    if(taxSwitch.checked){
+        price.innerText = Math.round(basePrice * 1.18).toLocaleString("en-IN");
+    }
+    else{
+        price.innerText = basePrice.toLocaleString("en-IN");
+    }
+  });
+
+  document.querySelectorAll(".tax-info").forEach(info => {
+    info.classList.toggle("show-tax");
+  });
+
 });
