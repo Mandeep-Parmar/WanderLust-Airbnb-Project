@@ -11,7 +11,7 @@ module.exports.index = async (req, res) => {
     listings = await Listing.find({});
   }
 
-  res.render("listings/index", { listings });
+  res.render("listings/index", { listings, category });
 };
 
 module.exports.renderNewForm = (req, res) => {

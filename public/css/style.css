@@ -138,8 +138,13 @@ footer{
     align-items: center;
     gap: 3rem;
     overflow-x: auto;
-    padding: 15px 0;
+    padding: 1rem 0;
     border-bottom: 1px solid #ddd;
+    scrollbar-width: none;
+}
+
+.filters::-webkit-scrollbar {
+  display: none;
 }
 
 .filter{
@@ -161,6 +166,12 @@ footer{
 .filter:hover{
     opacity: 1;
     color: black;
+}
+
+.active-filter {
+  border-bottom: 3px solid #fe424d;
+  opacity: 1;
+  font-weight: 600;
 }
 
 /* New Page */

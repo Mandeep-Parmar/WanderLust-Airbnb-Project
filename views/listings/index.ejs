@@ -2,37 +2,37 @@
 
 <div class="filters mt-3">
 
-    <a href="/listings" class="filter">
+    <a href="/listings" class="filter <%= !category ? 'active-filter' : '' %>">
         <i class="fa-solid fa-border-all"></i>
         <span>All</span>
     </a>
 
-    <a href="/listings?category=beach" class="filter">
+    <a href="/listings?category=beach" class="filter <%= category==='beach' ? 'active-filter' : '' %>">
         <i class="fa-solid fa-umbrella-beach"></i>
         <span>Beach</span>
     </a>
 
-    <a href="/listings?category=mountain" class="filter">
+    <a href="/listings?category=mountain" class="filter <%= category==='mountain' ? 'active-filter' : '' %>">
         <i class="fa-solid fa-mountain"></i>
         <span>Mountain</span>
     </a>
 
-    <a href="/listings?category=city" class="filter">
+    <a href="/listings?category=city" class="filter <%= category==='city' ? 'active-filter' : '' %>">
         <i class="fa-solid fa-city"></i>
         <span>City</span>
     </a>
 
-    <a href="/listings?category=camping" class="filter">
+    <a href="/listings?category=camping" class="filter <%= category==='camping' ? 'active-filter' : '' %>">
         <i class="fa-solid fa-campground"></i>
         <span>Camping</span>
     </a>
 
-    <a href="/listings?category=rooms" class="filter">
+    <a href="/listings?category=rooms" class="filter <%= category==='rooms' ? 'active-filter' : '' %>">
         <i class="fa-solid fa-bed"></i>
         <span>Rooms</span>
     </a>
 
-    <a href="/listings?category=farm" class="filter">
+    <a href="/listings?category=farm" class="filter <%= category==='farm' ? 'active-filter' : '' %>">
         <i class="fa-solid fa-tractor"></i>
         <span>Farm</span>
     </a>
