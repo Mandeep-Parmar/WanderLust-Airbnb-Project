@@ -33,6 +33,26 @@ body {  /* Footer stick at bottom */
     padding: 1rem !important;
 }
 
+.search-btn {
+    background-color: #fe424d !important;
+    color: white !important;
+    border-radius: 25px !important;
+}
+
+.search-btn:hover{
+    background-color: #e63946 !important;
+}
+
+.search-btn i{
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.search-input {
+    border-radius: 25px !important;
+    padding: 0.5rem 3rem !important;
+}
+
 /* Footer  */
 
 footer{

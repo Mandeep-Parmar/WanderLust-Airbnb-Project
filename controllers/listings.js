@@ -2,14 +2,23 @@ const Listing = require("../models/listing.js");
 const { cloudinary } = require("../cloudConfig");
 
 module.exports.index = async (req, res) => {
-  let { category } = req.query;
-  let listings;
+  let { category, search } = req.query;
+  
+  let query = {};
 
-  if (category) {
-    listings = await Listing.find({ category });
-  } else {
-    listings = await Listing.find({});
+  if(category) {
+    query.category = category;
   }
+
+  if(search) {
+    query.$or = [
+      {title : { $regex: search, $options: "i" } },
+      {location : { $regex: search, $options: "i" } },
+      {country : { $regex: search, $options: "i" } },
+    ];
+  }
+
+  const listings = await Listing.find(query);
 
   res.render("listings/index", { listings, category });
 };
