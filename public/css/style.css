@@ -85,10 +85,11 @@ body {
 
 /* Footer  */
 
-footer {
+.site-footer{
   background-color: #ebebeb;
-  border-top: 1px solid black;
-  padding: 1.5rem 0;
+  border-top: 1px solid #444;
+  padding: 2rem 0;
+  margin-top: 3rem;
 }
 
 .f-info {
@@ -97,31 +98,38 @@ footer {
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 0.6rem;
+  gap: 0.8rem;
 }
 
 .f-info-socials a {
   text-decoration: none;
-  color: black;
-  font-size: 1.4rem;
-  margin-right: 0.5rem;
-  transition: 0.2s;
+  color: #444;
+  font-size: 1.5rem;
+  margin: 0 0.6rem;
+  transition: all 0.25s ease;
 }
 
-.f-info-socials a i:hover {
-  transform: scale(1.1);
+.f-info-socials a i:hover{
+  color: #fe424d;
+  transform: translateY(-2px);
+}
+
+.f-info-brand{
+  font-size: 0.95rem;
+  color: #555;
 }
 
 .f-info-links a {
   text-decoration: none;
-  color: black;
+  color: #444;
   font-size: 0.9rem;
   transition: 0.2s;
-  margin-right: 0.6rem;
+  margin: 0 0.4rem;
 }
 
 .f-info-links a:hover {
   text-decoration: underline;
+  color: #fe424d;
 }
 
 /* Cards (index)  */
