@@ -325,10 +325,22 @@ form textarea {
 
 /* map */
 #map {
-  height: 400px;
   width: 100%;
-  border-radius: 10px;
-  margin-top: 1rem;
+  height: 50vh;
+  min-height: 300px;
+  max-height: 400px;  
+  border-radius: 12px;
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  #map {
+    height: 35vh;
+    min-height: 250px;
+    border-radius: 10px;
+  }
 }
 
 /* Review Card */
