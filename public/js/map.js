@@ -1,3 +1,6 @@
+const mapElement = document.getElementById("map");
+const coordinates = JSON.parse(mapElement.dataset.coordinates);
+
 const map = L.map("map").setView(
   [coordinates[1], coordinates[0]],
   13

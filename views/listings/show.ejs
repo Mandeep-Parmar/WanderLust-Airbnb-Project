@@ -1,9 +1,5 @@
 <% layout("layouts/boilerplate") %>
 
-<script>
-  const coordinates = <%- JSON.stringify(listing.geometry.coordinates) %>;
-</script>
-
 <!-- justify-content-center -> centers all columns horizontally -->
 <div class="row justify-content-center">
     <div class="col-lg-8 col-md-10 mt-3 mb-3 text-center">
@@ -114,7 +110,11 @@
         </div>
 
         <h3>Where you'll be</h3>
-        <div id="map" class="mb-3"></div>
+        <div 
+            id="map" 
+            class="mb-3"
+            data-coordinates='<%- JSON.stringify(listing.geometry.coordinates) %>'
+        ></div>
     </div>
 </div>
 
