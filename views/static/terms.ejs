@@ -1,0 +1,49 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+
+      <div class="card shadow-sm border-0 p-4">
+
+        <h2 class="text-center mb-3">Terms & Conditions</h2>
+        <p class="text-center text-muted mb-4">
+          Please read these terms before using WanderLust.
+        </p>
+
+        <h5 class="fw-semibold">Educational Purpose</h5>
+        <p>
+          WanderLust is an Airbnb-style demo application built for learning
+          full-stack development using Node.js, Express, MongoDB, and EJS.
+        </p>
+
+        <h5 class="fw-semibold mt-3">User Responsibility</h5>
+        <p>
+          Users are responsible for the listings and reviews they post.
+          Content should be respectful and appropriate.
+        </p>
+
+        <h5 class="fw-semibold mt-3">No Real Transactions</h5>
+        <p>
+          This platform does not support real bookings or payments.
+          All listings are for demonstration purposes only.
+        </p>
+
+        <h5 class="fw-semibold mt-3">Changes to Terms</h5>
+        <p>
+          These terms may change in the future as the project grows.
+        </p>
+
+        <p class="text-center text-muted mt-4">
+          Last updated: <%= new Date().getFullYear() %>
+        </p>
+
+        <a href="/listings" class="btn btn-outline-dark mt-3">
+            Back to Listings
+        </a>
+        
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -14,6 +14,7 @@ const User = require("./models/user.js");
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
+const staticRoutes = require("./routes/static");
 
 require("dotenv").config();
 
@@ -71,6 +72,7 @@ app.listen(8080, () => {
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
+app.use("/", staticRoutes);
 
 // 404 handler
 app.use((req, res, next) => {
