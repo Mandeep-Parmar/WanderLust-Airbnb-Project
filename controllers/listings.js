@@ -1,5 +1,6 @@
 const Listing = require("../models/listing.js");
 const { cloudinary } = require("../cloudConfig");
+const geocoder = require("../utils/geocoder.js");
 
 module.exports.index = async (req, res) => {
   let { category, search } = req.query;
@@ -51,6 +52,8 @@ module.exports.createListing = async (req, res) => {
     return res.redirect("/listings/new");
   }
 
+  const geoData = await geocoder.geocode(req.body.listing.location);
+
   let url = req.file.path;
   let filename = req.file.filename;
 
@@ -58,7 +61,16 @@ module.exports.createListing = async (req, res) => {
   newListing.owner = req.user._id;
   newListing.image = { url, filename };
 
-  await newListing.save();
+  newListing.geometry = {
+        type: "Point",
+        coordinates: [
+            geoData[0].longitude,
+            geoData[0].latitude
+        ]
+    };
+
+  let savedListing = await newListing.save();
+  console.log(savedListing);
   req.flash("success", "New Listing Created!");
   res.redirect("/listings");
 };
