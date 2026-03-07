@@ -337,3 +337,12 @@ form textarea {
 .login-alert a:hover {
   text-decoration: underline;
 }
+
+.account {
+    color: #fe424d;
+    text-decoration: none;
+}
+
+.account:hover {
+    text-decoration: underline;
+}
