@@ -376,6 +376,7 @@ form textarea {
   border-radius: 0.8rem;
   padding: 0.4rem;
   border: 1px solid #f0f0f0;
+  margin: 0.7rem;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
   transition: all 0.25s ease;
 }
