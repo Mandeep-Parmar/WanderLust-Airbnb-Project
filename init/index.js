@@ -35,7 +35,9 @@ const initDB = async () => {
             };
         }
 
-        listing.owner = new mongoose.Types.ObjectId("69a3bb98b7b984d430534a4e");
+        // listing.owner = new mongoose.Types.ObjectId("69a3bb98b7b984d430534a4e");
+        listing.owner = new mongoose.Types.ObjectId("69ad05b0332742b44c0d14e6");
+
 
         // add delay (VERY IMPORTANT)
         await new Promise(resolve => setTimeout(resolve, 1000));
