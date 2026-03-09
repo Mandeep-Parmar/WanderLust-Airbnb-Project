@@ -28,6 +28,18 @@
                     <input type="file" name="listing[image]" id="image" class="form-control">
                 </div>
 
+                <div class="mb-3">
+                    <label class="form-label">Category</label>
+                    <select name="listing[category]" class="form-control" required>
+                        <option value="beach" <%= listing.category === "beach" ? "selected" : "" %>>Beach</option>
+                        <option value="mountain" <%= listing.category === "mountain" ? "selected" : "" %>>Mountain</option>
+                        <option value="city" <%= listing.category === "city" ? "selected" : "" %>>City</option>
+                        <option value="camping" <%= listing.category === "camping" ? "selected" : "" %>>Camping</option>
+                        <option value="rooms" <%= listing.category === "rooms" ? "selected" : "" %>>Rooms</option>
+                        <option value="farm" <%= listing.category === "farm" ? "selected" : "" %>>Farm</option>
+                    </select>
+                </div>
+
                 <div class="row">
                     <div class="mb-3 col-md-4">
                         <label for="price" class="form-label">Price</label>
