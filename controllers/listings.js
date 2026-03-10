@@ -4,18 +4,18 @@ const geocoder = require("../utils/geocoder.js");
 
 module.exports.index = async (req, res) => {
   let { category, search } = req.query;
-  
+
   let query = {};
 
-  if(category) {
+  if (category) {
     query.category = category;
   }
 
-  if(search) {
+  if (search) {
     query.$or = [
-      {title : { $regex: search, $options: "i" } },
-      {location : { $regex: search, $options: "i" } },
-      {country : { $regex: search, $options: "i" } },
+      { title: { $regex: search, $options: "i" } },
+      { location: { $regex: search, $options: "i" } },
+      { country: { $regex: search, $options: "i" } },
     ];
   }
 
@@ -52,7 +52,16 @@ module.exports.createListing = async (req, res) => {
     return res.redirect("/listings/new");
   }
 
-  const geoData = await geocoder.geocode(req.body.listing.location);
+  const geoData = await geocoder.geocode(
+    `${req.body.listing.location}, ${req.body.listing.country}`
+  );
+
+  if (!geoData || geoData.length === 0) {
+    req.flash("error", "Invalid location. Please enter a valid place.");
+    return res.redirect("/listings/new");
+  }
+
+  const { longitude, latitude } = geoData[0];
 
   let url = req.file.path;
   let filename = req.file.filename;
@@ -62,12 +71,9 @@ module.exports.createListing = async (req, res) => {
   newListing.image = { url, filename };
 
   newListing.geometry = {
-        type: "Point",
-        coordinates: [
-            geoData[0].longitude,
-            geoData[0].latitude
-        ]
-    };
+    type: "Point",
+    coordinates: [longitude, latitude],
+  };
 
   let savedListing = await newListing.save();
   console.log(savedListing);
